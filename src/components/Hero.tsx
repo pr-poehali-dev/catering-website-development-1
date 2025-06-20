@@ -34,7 +34,7 @@ const Hero = () => {
           <Button
             variant="outline"
             size="lg"
-            className="text-white border-white hover:bg-white hover:text-black text-lg px-8 py-4"
+            className="text-black border-white hover:bg-white hover:text-black text-lg px-8 py-4"
           >
             <Icon name="Play" size={20} className="mr-2" />
             Посмотреть портфолио
