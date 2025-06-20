@@ -31,8 +31,37 @@ const QuickOrder = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Здесь будет логика отправки формы
-    console.log("Form submitted:", formData);
+
+    // Форматирование данных для отправки
+    const messageText = `
+🎉 Новая заявка на кейтеринг!
+
+👤 Имя: ${formData.name}
+📞 Телефон: ${formData.phone}
+🎊 Тип мероприятия: ${getEventTypeLabel(formData.eventType)}
+👥 Количество гостей: ${formData.guestCount}
+📅 Дата: ${formData.date}
+💬 Пожелания: ${formData.message || "Не указаны"}
+
+Получатель: @THREATSweden
+    `.trim();
+
+    console.log("Данные для отправки в Telegram:", messageText);
+    alert(
+      "Заявка подготовлена! Интеграция с Telegram будет доступна в ближайшее время.",
+    );
+  };
+
+  const getEventTypeLabel = (value: string) => {
+    const types: Record<string, string> = {
+      corporate: "Корпоратив",
+      wedding: "Свадьба",
+      birthday: "День рождения",
+      children: "Детский праздник",
+      bbq: "BBQ/Пикник",
+      other: "Другое",
+    };
+    return types[value] || value;
   };
 
   return (
